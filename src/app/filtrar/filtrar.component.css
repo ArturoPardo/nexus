@@ -1,0 +1,10 @@
+.filtro {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    padding: 5px;
+  }
+ button{
+    margin-left: 5px;
+    padding: 5px;
+  }

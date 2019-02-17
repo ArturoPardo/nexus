@@ -1,0 +1,6 @@
+<section class="listadoTareas">
+  
+  <div class="{{ tarea.completada? 'verdadero' : 'falso' }} " *ngFor="let tarea of arrData"><div class="one"><h1>Nombre</h1>{{ tarea.text }}<div><h1>ID</h1>{{ tarea.id }}</div><div><h1>Estado</h1>{{ tarea.completada }}</div> </div> <button (click)="borrar(tarea)">Borrar</button> <input type="checkbox" name="completada" [checked]="tarea.completada" (click)="siExiste(tarea)" /> </div>
+ 
+ 
+</section>

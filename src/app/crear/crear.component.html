@@ -1,0 +1,10 @@
+<header>
+  <img src="/assets/nexus.png">
+  <input
+    type="text"
+    placeholder="añadir tarea"
+    [(ngModel)]="newTareaText"
+    (keyup)="handleKeyup($event)"
+    [class.wrongTarea]="newTareaText.trim() === '' && newTareaText !== ''"
+  />
+</header>

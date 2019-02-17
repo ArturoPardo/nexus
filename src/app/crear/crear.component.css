@@ -1,0 +1,27 @@
+
+  
+  .wrongTarea {
+    border: red 3px solid;
+  }
+  header{
+  background-color:#f6648b;
+  display: flex;
+  justify-content:center;
+  height: 50px;
+  padding: 10px;
+ 
+  }
+  header img{
+   
+    height: 50px;
+  }
+  input{
+  
+    background-color: orange;
+    border:none;
+    height: 30px;
+   
+    padding: 10px;
+
+  
+  }

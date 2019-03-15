@@ -10,15 +10,10 @@ export class FiltrarComponent  {
   @Output() reset = new EventEmitter();
   queryText: string = '';
   buscar() {
-    this.nuevaQuery.emit(this.queryText);
-    
+    this.nuevaQuery.emit(this.queryText); 
   }
   borrar() {
     this.reset.emit();
     this.queryText = '';
-   
-    
-   
   }
-
 }

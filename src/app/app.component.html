@@ -1,16 +1,7 @@
 <crear (nuevaTarea)="anyadirTarea($event)"></crear>
 <filtrar (nuevaQuery)="filtrarTarea($event)"  (reset)="borrarFiltro($event)"></filtrar>
+<listado [arrData]="tareasFiltradas" (borrarTarea)="eliminarTarea($event)" (checkedTarea)="checkearTarea($event)" ></listado>
 
-<!-- <listado [arrData]="tareas"></listado> -->
-<listado [arrData]="tareasFiltradas" (borrarTarea)="eliminarTarea($event)" (checkedTarea)="checkearTarea($event)"   ></listado>
-<!-- {{users}} -->
-<!-- <listado-tareas
-  (borrarTarea)="eliminarTarea($event)"
-  [arrData]="tareasFiltradas"
-  (alternarCompletada)="alternarCompletada($event)"
-></listado-tareas> -->
-
-<!-- <tres *ngFor='let use of users' [realDato]='use'></tres> -->
 
 
 

@@ -141,19 +141,6 @@ constructor(){
   }
 
  
-  safran:string="color por defecto";
-  bloque = ['amarillo','rojos','azul']
-  anyadirColor(nuevoColor) {
-    console.log('llega');
-    console.log('mi nuevo'+ nuevoColor);
-    this.safran=nuevoColor;
-    console.log('mi nuevo color '+ this.safran);
-    
-    this.bloque.push(nuevoColor);
-    console.log('mi nuevo bloque '+ this.bloque);
-  
- 
-  }
   // -----
   
 }

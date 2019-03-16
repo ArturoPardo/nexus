@@ -1,6 +1,6 @@
 <crear (nuevaTarea)="anyadirTarea($event)"></crear>
 <filtrar (nuevaQuery)="filtrarTarea($event)"  (reset)="borrarFiltro($event)"></filtrar>
-<listado [arrData]="tareasFiltradas" (borrarTarea)="eliminarTarea($event)" (checkedTarea)="checkearTarea($event)" ></listado>
+<listado [Data]="tareasFiltradas" (borrarTarea)="eliminarTarea($event)" (mostrarControles)="mostrarControlesSer($event)" (ocultarControles)="ocultarControlesSer($event)"(checkedTarea)="checkearTarea($event)" ></listado>
 
 
 

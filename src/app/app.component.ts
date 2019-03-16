@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { Task } from './task.interface';
+import {
+  Component
+} from '@angular/core';
+import {
+  Task
+} from './task.interface';
 
 @Component({
   selector: 'app-root',
@@ -8,127 +12,114 @@ import { Task } from './task.interface';
 })
 
 export class AppComponent {
-nombrecito:string="Arturo Pardo";
-edadcito:number=45;
 
+
+
+  constructor() { 
   
 
 
-  alumnos:string[]=['Alberto','Joe','chiki'];
-  addUser(newUser){
-    this.alumnos.push(newUser.value);
-    newUser.value='';
-    newUser.focus();
-    console.log(newUser.value);
-    return false;
   }
-
-  
-
-  deleteAlumno(alumno){
-  for(let i=0;i<this.alumnos.length;i++){
-    if(alumno==this.alumnos[i]){
-      this.alumnos.splice(i,1);
-    }
-  }
-     console.log('j');
-      }
-  
-  title = 'tercero';
-  users = ['uno','dos','tres'];
-  activado =true;
-  name:string='Ryan Ran';
-  age:number;
-  address:{
-    street: string;
-    city:string;
-  };
-  hobbies:string[];
- 
-
-constructor(){
-  this.age=28;
-  this.address={
-  street:'San salvador',
-  city:'Alicante'
-  };
-  this.hobbies=['cantar','soñar'];
-
-
-
-
-
-  
-}
 
   // -----
   // tareas: Array<Task> = [{ text: 'prueba', id: 0, completada: true }];
   // tareas: Array<Task> = [];
-  tareas: Array<Task> = JSON.parse(localStorage.getItem("tareas")) || []; //Intento cargar el array de localStorage o uno vacío
- 
-  
+
+  tareas: Array < Task > = JSON.parse(localStorage.getItem("tareas")) || []; //Intento cargar el array de localStorage o uno vacío
+
+
   // tareas = [];
-  query:string="";
-  
-  tareasFiltradas: Array<Task> = this.tareas;
+  query: string = "";
+ 
+  tareasFiltradas: Array < Task > = this.tareas;
   queryText: string = '';
-  
-  
+
+
+
+  comparar(a, b) {
+    return b.id - a.id;
+  }
+
+
   anyadirTarea(text) {
-    let newTask: Task = { text, id: Date.now(), completada: false };
+  
+    let newTask: Task = {
+      text,
+      id: Date.now(),
+      completada: false
+    };
+
     this.tareas.push(newTask);
+    this.tareasFiltradas.sort(this.comparar);
+
     this.tareasFiltradas = this.tareas;
     this.guardaLocalStorage();
-    
+
   }
-  
+  mostrarControlesSer(tarea) {
+    let arreglo = this.tareas;
+    let busqueda = tarea.id;
+    // console.log("esto busqueda" + busqueda);
+    let indice = arreglo.findIndex(tarea => tarea.id=== busqueda);
+    var lista = document.getElementsByClassName("controls") as HTMLCollectionOf < HTMLElement > ;
+    lista[indice].style.opacity = "1";
+  }
+  ocultarControlesSer(tarea) {
+    let arreglo = this.tareas;
+    let busqueda = tarea.id;
+    console.log("oculto" + busqueda);
+    let indice = arreglo.findIndex(tarea => tarea.id === busqueda);
+    var lista = document.getElementsByClassName("controls") as HTMLCollectionOf < HTMLElement > ;
+    lista[indice].style.opacity = "0";
+  }
+
 
   guardaLocalStorage() {
     localStorage.setItem("tareas", JSON.stringify(this.tareas)); //Intento guardarlo en localStorage
-     
+
   }
-  
- 
+
+
 
   filtrarTarea(nuevaQuery: string) {
-    this.query= nuevaQuery;
-    
- 
-    this.tareasFiltradas = this.tareas.filter(tarea => tarea.text.match(this.query));
-   
-   if(this.tareasFiltradas.length == 0){
+    this.query = nuevaQuery;
 
-    console.log('no hay resultados');
- }
- else{
-    
-    console.log("RESULTADOS: "+ this.tareasFiltradas.length);
- }
-    
-  //  
-    
-    
+
+    this.tareasFiltradas = this.tareas.filter(tarea => tarea.text.match(this.query));
+
+    if (this.tareasFiltradas.length == 0) {
+
+      console.log('no hay resultados');
+    } else {
+
+      console.log("RESULTADOS: " + this.tareasFiltradas.length);
+    }
+
+    //  
+
+
     // this.tareasFiltradas = this.tareas.filter(tarea => tarea.text.match(this.query));
-    
+
   }
 
   eliminarTarea(tarea) {
     this.tareasFiltradas = this.tareas;
-    for(let i=0;i<this.tareas.length;i++){
-      if(tarea.id==this.tareas[i].id){
-        this.tareas.splice(i,1);
-        console.log("eliminar tarea" +tarea);
+    for (let i = 0; i < this.tareas.length; i++) {
+      if (tarea.id == this.tareas[i].id) {
+        this.tareas.splice(i, 1);
+        console.log("eliminar tarea" + tarea);
+      }
     }
-   }
-   this.guardaLocalStorage();
+    this.guardaLocalStorage();
 
   }
 
   checkearTarea(tarea) {
-    
-    tarea.completada=! tarea.completada;
+
+    tarea.completada = !tarea.completada;
     console.log(tarea.completada);
-   this.guardaLocalStorage();
+    this.guardaLocalStorage();
+     
 
   }
 
@@ -136,11 +127,11 @@ constructor(){
     this.query = '';
     this.tareasFiltradas = this.tareas;
     console.log('borro');
-    
-    
+
+
   }
 
- 
+
   // -----
-  
+
 }

@@ -9,6 +9,7 @@ export class CrearComponent  {
 
   @Output() nuevaTarea = new EventEmitter();
   newTareaText = '';
+  newColor= '';
   handleKeyup(ev) {
     console.log('keyup event fired!');
     if (ev.keyCode === 13 && this.newTareaText.trim() !== '') {
@@ -17,5 +18,6 @@ export class CrearComponent  {
       this.newTareaText = '';
     }
   }
+  
   constructor() { }
 }

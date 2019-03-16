@@ -1,6 +1,18 @@
 <section class="listadoTareas">
-  
-  <div class="{{ tarea.completada? 'verdadero' : 'falso' }} " *ngFor="let tarea of arrData"><div class="one"><h1>Nombre</h1>{{ tarea.text }}<div><h1>ID</h1>{{ tarea.id }}</div><div><h1>Estado</h1>{{ tarea.completada }}</div> </div> <button (click)="borrar(tarea)">Borrar</button> <input type="checkbox" name="completada" [checked]="tarea.completada" (click)="siExiste(tarea)" /> </div>
- 
- 
+  <div class="{{ tarea.completada? 'falso' : 'verdadero' }} " *ngFor="let tarea of Data">
+    <div class="box">
+      <h1>
+        <span [hidden]="editing" (dblclick)="edit(editInput)">{{ tarea.text }}</span>
+        <span [hidden]="!editing">
+          <input type="text" #editInput (keyup.enter)="editName()" (blur)="cancelEdit()" [(ngModel)]="newName" />
+        </span>
+      </h1>
+      <div class="controls" (mouseover)='over(tarea)' (mouseout)='out(tarea)'>
+        <i (click)="borrar(tarea)" class="material-icons">delete</i> <i (click)="edit(editInput)" class="material-icons">edit</i>
+        <i class="material-icons" (click)="siExiste(tarea)">
+          {{tarea.completada? "done_all" : "done"}}
+        </i>
+      </div>
+    </div>
+  </div>
 </section>

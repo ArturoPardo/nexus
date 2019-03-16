@@ -1,53 +1,55 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Component,  Input, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'listado',
   templateUrl: './listado.component.html',
   styleUrls: ['./listado.component.css']
 })
-export class ListadoComponent implements OnInit {
+export class ListadoComponent  {
+  
   
  @Output() borrarTarea = new EventEmitter();
  @Output() checkedTarea = new EventEmitter();
-  // for(let i=0;i<this.alumnos.length;i++){
-  //   if(alumno==this.alumnos[i]){
-  //     this.alumnos.splice(i,1);
-  //   }
-
+ @Output() mostrarControles = new EventEmitter();
+ @Output() ocultarControles = new EventEmitter();
+ @Input() Data;
+ nombreLista:string='';
+ editing:boolean=false;
   borrar(tarea) {
-
     this.borrarTarea.emit(tarea);
     console.log('borrarTarea');
   }
+ over(tarea){  
+  this.mostrarControles.emit(tarea);
+    console.log('borrarTarea');
+ 
 
+
+}
+  
+edit(nada) {
+ 
+  console.log(nada);
+  setTimeout(() => {
+    nada.focus();
+  }, 0);
+  this.editing = true;
+  
+}
+cancelEdit() {
+  this.editing = false;
+}
+  
+  out(tarea){  
+    
+    this.ocultarControles.emit(tarea);
+    console.log('borrarTarea');}
   siExiste(tarea) {
     this.checkedTarea.emit(tarea);
-   
-
-    // for(let i=0;i<this.arrData.length;i++){
-    //   if(tarea==this.arrData[i]){
-    //   tarea.completada=!tarea.completada;
-    //    console.log(tarea.completada);
-    
-    //   }
-    }
-   
-
-
-
-
-
-  @Input() arrData;
- 
-  // -------solo el input arrdata
-
- 
-  constructor() {}
- 
-    
-
-
-  ngOnInit() {
   }
+   
+  
+ 
+
 
 }

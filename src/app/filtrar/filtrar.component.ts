@@ -13,6 +13,7 @@ export class FiltrarComponent  {
     this.nuevaQuery.emit(this.queryText); 
   }
   borrar() {
+    console.log("llega aqui");
     this.reset.emit();
     this.queryText = '';
   }

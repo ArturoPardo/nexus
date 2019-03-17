@@ -13,12 +13,8 @@ import {
 
 export class AppComponent {
 
-
-
   constructor() { 
   
-
-
   }
 
   // -----
@@ -27,22 +23,19 @@ export class AppComponent {
 
   tareas: Array < Task > = JSON.parse(localStorage.getItem("tareas")) || []; //Intento cargar el array de localStorage o uno vacío
 
-
   // tareas = [];
   query: string = "";
- 
   tareasFiltradas: Array < Task > = this.tareas;
   queryText: string = '';
 
-
+  guardaLocalStorage() {
+    localStorage.setItem("tareas", JSON.stringify(this.tareas)); //Intento guardarlo en localStorage
+  }
 
   comparar(a, b) {
     return b.id - a.id;
   }
-
-
   anyadirTarea(text) {
-  
     let newTask: Task = {
       text,
       id: Date.now(),
@@ -51,7 +44,6 @@ export class AppComponent {
 
     this.tareas.push(newTask);
     this.tareasFiltradas.sort(this.comparar);
-
     this.tareasFiltradas = this.tareas;
     this.guardaLocalStorage();
 
@@ -59,7 +51,6 @@ export class AppComponent {
   mostrarControlesSer(tarea) {
     let arreglo = this.tareas;
     let busqueda = tarea.id;
-    // console.log("esto busqueda" + busqueda);
     let indice = arreglo.findIndex(tarea => tarea.id=== busqueda);
     var lista = document.getElementsByClassName("controls") as HTMLCollectionOf < HTMLElement > ;
     lista[indice].style.opacity = "1";
@@ -67,39 +58,14 @@ export class AppComponent {
   ocultarControlesSer(tarea) {
     let arreglo = this.tareas;
     let busqueda = tarea.id;
-    console.log("oculto" + busqueda);
     let indice = arreglo.findIndex(tarea => tarea.id === busqueda);
     var lista = document.getElementsByClassName("controls") as HTMLCollectionOf < HTMLElement > ;
     lista[indice].style.opacity = "0";
   }
 
-
-  guardaLocalStorage() {
-    localStorage.setItem("tareas", JSON.stringify(this.tareas)); //Intento guardarlo en localStorage
-
-  }
-
-
-
   filtrarTarea(nuevaQuery: string) {
     this.query = nuevaQuery;
-
-
     this.tareasFiltradas = this.tareas.filter(tarea => tarea.text.match(this.query));
-
-    if (this.tareasFiltradas.length == 0) {
-
-      console.log('no hay resultados');
-    } else {
-
-      console.log("RESULTADOS: " + this.tareasFiltradas.length);
-    }
-
-    //  
-
-
-    // this.tareasFiltradas = this.tareas.filter(tarea => tarea.text.match(this.query));
-
   }
 
   eliminarTarea(tarea) {
@@ -107,31 +73,19 @@ export class AppComponent {
     for (let i = 0; i < this.tareas.length; i++) {
       if (tarea.id == this.tareas[i].id) {
         this.tareas.splice(i, 1);
-        console.log("eliminar tarea" + tarea);
       }
     }
     this.guardaLocalStorage();
-
   }
 
   checkearTarea(tarea) {
-
     tarea.completada = !tarea.completada;
-    console.log(tarea.completada);
     this.guardaLocalStorage();
-     
-
   }
-
+ 
   borrarFiltro() {
     this.query = '';
     this.tareasFiltradas = this.tareas;
-    console.log('borro');
-
-
   }
-
-
-  // -----
 
 }

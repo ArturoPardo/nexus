@@ -1,37 +1,41 @@
-
 .listadoTareas {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
+
 .falso {
-  background-color:#eaeaea;
-  margin:10px 20px;
+  background-color: #eaeaea;
+  margin: 10px 20px;
   padding: 15px;
   width: 200px;
   border-radius: 25px;
   opacity: 0.4;
 }
-.falso .box{
-  background-color:#f6648b;
+
+.falso .box {
+  background-color: #f6648b;
 }
+
 .verdadero {
   background-color: #f6648b;
-  margin:10px 20px;
-  padding:15px;
+  margin: 10px 20px;
+  padding: 15px;
   width: 200px;
   border-radius: 25px;
 }
+
 .box {
   border-radius: 15px;
-  padding:15px;
+  padding: 15px;
   background-color: rgb(201, 225, 49);
-  
+
 }
-.title{
+
+.title {
   font-size: 1.7em;
   padding-bottom: 30px;
-  border-bottom:2px solid #000;
+  border-bottom: 2px solid #000;
 }
 
 button {
@@ -39,7 +43,16 @@ button {
   margin-top: 5px;
   margin-right: 20px;
 }
+
 .controls {
   opacity: 0;
   transition: opacity 400ms;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+::placeholder {
+  color: #000;
 }

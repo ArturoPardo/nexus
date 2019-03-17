@@ -2,13 +2,11 @@
   <div class="{{ tarea.completada? 'falso' : 'verdadero' }} " *ngFor="let tarea of Data">
     <div class="box">
       <h1>
-        <span [hidden]="editing" (dblclick)="edit(editInput)">{{ tarea.text }}</span>
-        <span [hidden]="!editing">
-          <input type="text" #editInput (keyup.enter)="editName()" (blur)="cancelEdit()" [(ngModel)]="newName" />
-        </span>
+        {{ tarea.text }}
       </h1>
       <div class="controls" (mouseover)='over(tarea)' (mouseout)='out(tarea)'>
-        <i (click)="borrar(tarea)" class="material-icons">delete</i> <i (click)="edit(editInput)" class="material-icons">edit</i>
+        <i (click)="borrar(tarea)" class="material-icons">delete</i>
+         <!-- <i (click)="edit(editInput)" class="material-icons">edit</i> -->
         <i class="material-icons" (click)="siExiste(tarea)">
           {{tarea.completada? "done_all" : "done"}}
         </i>

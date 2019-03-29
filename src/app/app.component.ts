@@ -12,9 +12,8 @@ import {
 })
 
 export class AppComponent {
-
   constructor() { 
-  
+ 
   }
 
   // -----
@@ -30,8 +29,14 @@ export class AppComponent {
 
   guardaLocalStorage() {
     localStorage.setItem("tareas", JSON.stringify(this.tareas)); //Intento guardarlo en localStorage
+    let shows = JSON.parse(localStorage.getItem('tareas'));
+    // alert(shows.length);
   }
-
+  vaciaLocalStorage() {
+   localStorage.clear();
+   alert(localStorage.length +" En localStorage");
+    
+  }
   comparar(a, b) {
     return b.id - a.id;
   }

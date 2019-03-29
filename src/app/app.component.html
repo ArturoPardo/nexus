@@ -1,6 +1,6 @@
-<crear (nuevaTarea)="anyadirTarea($event)"></crear>
-<filtrar (nuevaQuery)="filtrarTarea($event)" (reset)="borrarFiltro()"></filtrar>
-<listado [Data]="tareasFiltradas" (borrarTarea)="eliminarTarea($event)" (mostrarControles)="mostrarControlesSer($event)" (ocultarControles)="ocultarControlesSer($event)"(checkedTarea)="checkearTarea($event)" ></listado>
+<crear (nuevaTarea)="anyadirTarea($event)" (resetLocal)="vaciaLocalStorage()"></crear>
+<filtrar (nuevaQuery)="filtrarTarea($event)" (resetLocal)="vaciaLocalStorage()" ></filtrar>
+<listado [Data]="tareasFiltradas" (borrarTarea)="eliminarTarea($event)" (mostrarControles)="mostrarControlesSer($event)" (ocultarControles)="ocultarControlesSer($event)"(checkedTarea)="checkearTarea($event)"  ></listado>
 
 
 

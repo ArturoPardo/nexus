@@ -8,6 +8,7 @@ import { Component, Output, EventEmitter} from '@angular/core';
 export class FiltrarComponent  {
   @Output() nuevaQuery = new EventEmitter();
   @Output() reset = new EventEmitter();
+  @Output() resetLocal = new EventEmitter();
   queryText: string = '';
   buscar() {
     this.nuevaQuery.emit(this.queryText); 
@@ -16,5 +17,10 @@ export class FiltrarComponent  {
     console.log("llega aqui");
     this.reset.emit();
     this.queryText = '';
+  }
+  borrarLocal(){
+    console.log(1);
+    this.resetLocal.emit();
+    
   }
 }

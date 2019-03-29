@@ -1,4 +1,5 @@
 <section class="filtro">
-  <input type="text" [(ngModel)]="queryText" placeholder="Search" (keyup)="buscar()" /> <button (click)="borrar()">Reset
+  <input type="text" [(ngModel)]="queryText" placeholder="Search" (keyup)="buscar()" /> <button class="filter" (click)="borrar()">Reset
     Filter</button>
+      <button class="clear" (click)="borrarLocal()">Reset Local</button>
 </section>

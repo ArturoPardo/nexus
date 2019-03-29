@@ -24,9 +24,17 @@ input:focus {
   outline: 0;
 }
 
-button {
+.filter {
   border-radius: .5em;
   background-color: #f6648b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.9em;
+}
+.clear {
+  border-radius: .5em;
+  background-color: #23849c;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -35,4 +43,7 @@ button {
 
 ::placeholder {
   color: #000;
+}
+button:focus {outline:0 !important;
+ 
 }

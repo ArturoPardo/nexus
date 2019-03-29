@@ -29,4 +29,3 @@ input:focus {
 ::placeholder {
   color: #000;
 }
-button:focus {outline:0;}

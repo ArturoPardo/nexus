@@ -8,13 +8,15 @@ import { Component, Output, EventEmitter} from '@angular/core';
 export class CrearComponent  {
 
   @Output() nuevaTarea = new EventEmitter();
+ 
   newTareaText = '';
-  newColor= '';
+  constructor() { }
   handleKeyup(ev) {
     if (ev.keyCode === 13 && this.newTareaText.trim() !== '') {
       this.nuevaTarea.emit(this.newTareaText.trim());
       this.newTareaText = '';
     }
   }
-  constructor() { }
+  
+  
 }

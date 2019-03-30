@@ -44,15 +44,19 @@ button {
   margin-right: 20px;
 }
 
-.controls {
-  opacity: 0;
-  transition: opacity 400ms;
-}
-
 h1 {
   margin-top: 0;
 }
 
 ::placeholder {
   color: #000;
+}
+.controls{
+  opacity:0;
+  transition: 400ms ease all;
+ 
+}
+.controls:hover{
+  opacity:1;
+  
 }

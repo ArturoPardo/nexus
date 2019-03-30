@@ -53,21 +53,7 @@ export class AppComponent {
     this.guardaLocalStorage();
 
   }
-  mostrarControlesSer(tarea) {
-    let arreglo = this.tareas;
-    let busqueda = tarea.id;
-    let indice = arreglo.findIndex(tarea => tarea.id=== busqueda);
-    var lista = document.getElementsByClassName("controls") as HTMLCollectionOf < HTMLElement > ;
-    lista[indice].style.opacity = "1";
-  }
-  ocultarControlesSer(tarea) {
-    let arreglo = this.tareas;
-    let busqueda = tarea.id;
-    let indice = arreglo.findIndex(tarea => tarea.id === busqueda);
-    var lista = document.getElementsByClassName("controls") as HTMLCollectionOf < HTMLElement > ;
-    lista[indice].style.opacity = "0";
-  }
-
+  
   filtrarTarea(nuevaQuery: string) {
     this.query = nuevaQuery;
     this.tareasFiltradas = this.tareas.filter(tarea => tarea.text.match(this.query));
